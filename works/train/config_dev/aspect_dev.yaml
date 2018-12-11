@@ -1,0 +1,78 @@
+###############################################################
+train_data_path: 20181113/train_token.csv
+test_data_path: 20181113/val_token.csv
+# 模型输出路径
+model_out_path: ../model/aspect
+# 模型重载路径：继续训练或者测试模型, 如果此处配置了路径，则表示继续训练该模型
+re_model_path: ../model/aspect/1113_12_35_14  #E:\dataset\model\1228_18_09_56
+# 是否用chunk的方式fetch csv数据，如果文件较大推荐使    用此方式
+csv_iterator: false
+vocab_pkl: tools/content_vocab_1_1023_800.pickle
+pre_word_vect: 20181023/words_embedd.txt
+
+train_args:
+  # common
+  content_len: 800
+  num_classes: 4  # 单个类别子类， 0,1,2,3 => 0,1,-2,-1
+  embedding_size: 300
+  enhance: false # 数据增强
+  model: rnn
+
+  special_class: [] #[0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,  17, 19] #[1, 16, 18]
+
+  #CNN
+  filter_sizes: [2,3,4,5] #Comma-separated filter sizes (default: '3,4,5')
+  num_filters: 64 # Number of filters per filter size (default: 128)
+
+
+  # RNN
+  num_hidden: 512
+  num_layer: 1
+  bidirectional: true
+  cell_type: lstm # gru
+  atten: hi
+  atten_size: 128
+  pre_word: false
+
+  # transform
+  d_k: 64
+  d_v: 64
+  h: 8
+  t_num_layer: 6
+  use_residual_conn: false
+
+  # multi-head
+  m_hidden: 1024
+  m_num_layer: 2
+
+  # Training parameters
+  dropout_keep_prob: 0.5 # Dropout keep probability (default: 0.5)
+  l2_reg_lambda: 0.0001  #0.0001 # L2 regularization lambda (default: 0.0) 0.00005 best
+  learn_rate: 0.001 #0.001
+
+
+  batch_size: 16 # Batch Size (default: 64)
+  test_batch_size: 64 # test Batch Size (default: 1000)
+  num_epochs: 20 # 数据集循环次数(default: 200)
+  log_every: 100 # 打印
+  evaluate_every: 1000 # Evaluate mod  el on dev set after this many steps (default: 100)
+  checkpoint_every: 1000 # Save model after this many steps (default: 100)
+  lr_decay_steps: 500 # 学习率衰减步数
+
+  # Misc Parameters
+  allow_soft_placement: true # Allow device soft device placement
+  log_device_placement: false # Log placement of ops on devices
+
+
+
+
+
+
+
+
+
+
+
+
+
+

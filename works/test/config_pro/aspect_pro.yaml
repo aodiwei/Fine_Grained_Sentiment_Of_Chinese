@@ -1,0 +1,18 @@
+###############################################################
+# 模型重载路径：测试模型, 如果此处配置了路径，则表示继续训练该模型
+re_model_path: ../model/aspect/1113_12_35_14
+test_batch_size: 128 # test Batch Size (default: 1000)
+# 测试数据路径，可以为文件，也可以为文件名
+test_path: 20181113/testb_token.csv
+
+vocab_pkl: tools/content_vocab_1_1023_800.pickle
+
+
+
+
+
+
+
+
+
+

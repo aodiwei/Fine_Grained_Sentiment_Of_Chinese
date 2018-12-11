@@ -1,0 +1,11 @@
+# 根配置，公共配置，其他配置在具体work下
+logger_access:
+  level: INFO
+  path:  ./
+  is_console: true
+
+
+
+
+
+
