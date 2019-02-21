@@ -21,5 +21,5 @@ testA, testB 都是F1为0.689
 具体模型代码在.works/train/work_fine_grained_sentiment/model下
 在尝试多种模型后，效果最好的是**Attention-LSTM(hi_attention)**
 
-后续也使用了Google 的BERT 做了fine-tuning 初步试了把，效果才testA 才0.66 调调后再传上来
+使用Google 的BERT 做了fine-tuning ，效果testA 0.69 [https://github.com/aodiwei/BERT_for_aspect_fine_grain](bert)
 
